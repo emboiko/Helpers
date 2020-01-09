@@ -2,8 +2,7 @@
 
 This repo serves as a collection of various functions, classes, & code snippets as they begin to make multiple appearances in multiple projects. Pre-existing repositories for decorators & context managers now live here. This is also a place for smaller modules, bits, & bytes that don't necessarily warrant an entire repo of their own. 
 
-### Contents:
----
+## Contents:
 - Context managers
 - Decorators
 - File / path utilities
@@ -11,8 +10,7 @@ This repo serves as a collection of various functions, classes, & code snippets 
 - Tkinter helpers
 - Common conversions not served by the standard library
 
-### Contents in detail:
----
+## Contents in detail:
 - ##### Context_Managers:
 	- Outfile.py
 		- `class Outfile`: Redirect stdout => file.txt
@@ -47,17 +45,16 @@ This repo serves as a collection of various functions, classes, & code snippets 
 	- get_offset.py
 		- `get_offset()`: Returns an appropriate offset for a given tkinter toplevel, such that it always shows center screen on the primary display, given its existing dimensions.
 
----
-### Usage:
-##### Context_Managers:
+## Usage:
+### Context_Managers:
 (coming soon)
-##### Conversions:
+### Conversions:
 (coming soon)
-##### Decorators:
+### Decorators:
 (coming soon)
-##### File_Utils:
+### File_Utils:
 (coming soon)
-##### IPC:
+### IPC:
 - socket_singleton.py
 	- `get_offset(tk_window)` => `(width_offset, height_offset)`
 
@@ -89,7 +86,7 @@ We can also get access to **arguments** passed from subsequent attempts to run `
 (coming soon)
 
 
-##### Tk_Tools:
+### Tk_Tools:
 - get_offset.py
 	- `get_offset(tk_window)` => `(width_offset, height_offset)`
 ```
