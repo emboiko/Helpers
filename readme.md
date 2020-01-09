@@ -49,4 +49,54 @@ This repo serves as a collection of various functions, classes, & code snippets 
 
 ---
 ### Usage:
+##### Context_Managers:
 (coming soon)
+##### Conversions:
+(coming soon)
+##### Decorators:
+(coming soon)
+##### File_Utils:
+(coming soon)
+##### IPC:
+- socket_singleton.py
+	- `get_offset(tk_window)` => `(width_offset, height_offset)`
+
+Say we have an application, app.py, that we want to restrict to a single instance.
+```
+#app.py
+
+from socket_singleton import Socket_Singleton
+Socket_Singleton()
+input() #Blocking call to simulate your_business_logic() 
+```
+The first time app.py is launched:
+```
+>> C:\current\working\directory λ python app.py
+>> 
+```
+app.py runs (Here, app.py blocks until we satisfy input(). Replace this with your own logic.)
+
+Now, in another shell, if we try:
+```
+>> C:\current\working\directory λ python app.py
+>> C:\current\working\directory λ
+```
+The interpreter exits immediately and we end up back at the prompt.
+
+---
+We can also get access to **arguments** passed from subsequent attempts to run `python app.py` through an observer.
+
+(coming soon)
+
+
+##### Tk_Tools:
+- get_offset.py
+	- `get_offset(tk_window)` => `(width_offset, height_offset)`
+```
+window = Tk()
+window.geometry(f"{width}x{height}")
+window.update()
+(width_offset, height_offset) = get_offset(tk_window)
+# Then it's very easy to do this:
+window.geometry(f"+{width_offset}+{height_offset}")
+```
