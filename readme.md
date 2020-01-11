@@ -29,9 +29,9 @@ This repo serves as a collection of various functions, classes, & code snippets 
 		- `counted()`: Function call counter => stdout
 	- Logged.py
 		- `logged()`: Datetime logger => stdout
-	- Timed
+	- Timed.pu
 		- `timed()`: wrapper for time.perf_counter() => stdout
-	- TimedAverage
+	- TimedAverage.py
 		- `timed_average`: (See Timed) Runs a function [iterations] times and returns the result of the last. => stdout
 - ##### File_Utils:
 	- get_disks.py
@@ -40,7 +40,7 @@ This repo serves as a collection of various functions, classes, & code snippets 
 		- `name_dupe()`: Return a filename appended w/ an index to avoid overwrite => file.txt => file(2).txt
 - #### IPC:
 	- socket_singleton.py
-		- `Socket_Singleton()`: Allow one instance of an application to run at a time.
+		- `Socket_Singleton()`: Allow one instance of an application to run at a time + gather / send arguments.
 - #### Tk_Tools:
 	- get_offset.py
 		- `get_offset()`: Returns an appropriate offset for a given tkinter toplevel, such that it always shows center screen on the primary display, given its existing dimensions.
@@ -81,15 +81,79 @@ Now, in another shell, if we try:
 The interpreter exits immediately and we end up back at the prompt.
 
 ---
-We can also get access to **arguments** passed from subsequent attempts to run `python app.py` through an observer.
+We can also get access to **arguments** passed from subsequent attempts to run `python app.py` with the `arguments` attribute.
+This can be accessed directly, but it's probably more convenient to use the `trace()` method. This allows you to register a callback, which gets called when `arguments` is appended.
 
-(coming soon)
+`Socket_Singleton.trace(observer, *args, **kwargs)`
+
+```
+#app.py
+from socket_singleton import Socket_Singleton
+
+def callback(app, *args, **kwargs):
+    print(app.arguments)
+
+def main():
+    app = Socket_Singleton()
+    app.trace(callback)
+    input() #Blocking call to simulate your_business_logic() 
+
+if __name__ == "__main__":
+    main()
+```
+At the terminal:
+```
+>> C:\current\working\directory λ python app.py
+>> 
+```
+
+In another shell, subsequent attempts to `python app.py` now look like this:
+```
+>> C:\current\working\directory λ python app.py foo bar baz
+>> C:\current\working\directory λ
+```
+Meanwhile, our output for the original `python app.py` shell looks like this:
+```
+>> C:\current\working\directory λ python app.py
+>> ["foo"]
+>> ["foo", "bar"]
+>> ["foo", "bar", "baz"]
+```
+
+---
+If you'd prefer to **disconnect** from the port prematurely, thus releasing the "lock", there's a `close()` method:
+
+```
+from socket_singleton import Socket_Singleton
+
+def main():
+    app = Socket_Singleton()
+    app.close()
+    input()
+
+if __name__ == "__main__":
+    main()
+```
+At the terminal:
+```
+>> C:\current\working\directory λ python app.py
+>> Running!
+>> 
+```
+And in a new shell:
+```
+>> C:\current\working\directory λ python app.py
+>> Running!
+>> 
+```
 
 
 ### Tk_Tools:
 - get_offset.py
 	- `get_offset(tk_window)` => `(width_offset, height_offset)`
 ```
+from Tkinter import Tk()
+
 window = Tk()
 window.geometry(f"{width}x{height}")
 window.update()
