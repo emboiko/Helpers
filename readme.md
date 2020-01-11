@@ -88,6 +88,7 @@ This can be accessed directly, but it's probably more convenient to use the `tra
 
 ```
 #app.py
+
 from socket_singleton import Socket_Singleton
 
 def callback(app, *args, **kwargs):
@@ -124,6 +125,8 @@ Meanwhile, our output for the original `python app.py` shell looks like this:
 If you'd prefer to **disconnect** from the port prematurely, thus releasing the "lock", there's a `close()` method:
 
 ```
+#app.py
+
 from socket_singleton import Socket_Singleton
 
 def main():
