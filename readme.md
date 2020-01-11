@@ -59,7 +59,8 @@ This repo serves as a collection of various functions, classes, & code snippets 
 
 ### IPC:
 - socket_singleton.py
-	- `get_offset(tk_window)` => `(width_offset, height_offset)`
+
+`Socket_Singleton(address="127.0.0.1", port=1337, client=True)`
 
 Say we have an application, app.py, that we want to restrict to a single instance.
 ```
