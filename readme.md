@@ -13,11 +13,11 @@ This repo serves as a collection of various functions, classes, & code snippets 
 ## Contents in detail:
 - ##### Context_Managers:
 	- Outfile.py
-		- `class Outfile`: Redirect stdout => file.txt
+		- `Outfile()`: Redirect stdout => file.txt
 	- Precision.py
-		- `class Precision`: Set decimal precision
+		- `Precision()`: Set decimal precision
 	- Timer.py
-		- `class Timer`: wrapper for time.perf_counter()
+		- `Timer()`: wrapper for time.perf_counter()
 - ##### Conversions:
 	- color_notation.py
 		- `rgb_to_hex()`: (255,255,255) => "#FFFFFF"
