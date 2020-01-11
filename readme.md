@@ -28,11 +28,11 @@ This repo serves as a collection of various functions, classes, & code snippets 
 	- Counted.py
 		- `counted()`: Function call counter => stdout
 	- Logged.py
-		- `logged()`: Datetime logger => stdout
+		- `logged()`: Datetime functin logger => stdout
 	- Timed.pu
 		- `timed()`: wrapper for time.perf_counter() => stdout
 	- TimedAverage.py
-		- `timed_average`: (See Timed) Runs a function [iterations] times and returns the result of the last. => stdout
+		- `timed_average()`: (See Timed) Runs a function [iterations] times and returns the result of the last. average time => stdout
 - ##### File_Utils:
 	- get_disks.py
 		- `get_disks()`: Return all mounted disk names as a list of strings (Windows) => ["C:/", "D:/", "E:/"]
