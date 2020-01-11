@@ -54,6 +54,9 @@ This repo serves as a collection of various functions, classes, & code snippets 
 (coming soon)
 ### File_Utils:
 (coming soon)
+
+---
+
 ### IPC:
 - socket_singleton.py
 	- `get_offset(tk_window)` => `(width_offset, height_offset)`
@@ -150,6 +153,7 @@ And in a new shell:
 >> 
 ```
 
+---
 
 ### Tk_Tools:
 - get_offset.py
