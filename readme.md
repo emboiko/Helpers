@@ -1,14 +1,18 @@
 # Various Helpers (Python3) (WIP)
 
+<p align=center>
+<img src="https://i.imgur.com/Ccg6d53.jpg?1">
+</p>
+
 This repo serves as a collection of various functions, classes, & code snippets as they begin to make multiple appearances in multiple projects. Pre-existing repositories for decorators & context managers now live here. This is also a place for smaller modules, bits, & bytes that don't necessarily warrant an entire repo of their own. 
 
 ## Contents:
 - Context managers
+- Common conversions not served by the standard library
 - Decorators
 - File / path utilities
 - Simple socket-based IPC utility class
-- Tkinter helpers
-- Common conversions not served by the standard library
+- Tkinter helper(s)
 
 ## Contents in detail:
 - ##### Context_Managers:
@@ -48,8 +52,35 @@ This repo serves as a collection of various functions, classes, & code snippets 
 ## Usage:
 ### Context_Managers:
 (coming soon)
+
+---
+
 ### Conversions:
-(coming soon)
+
+- color_notation.py
+
+	- `rgb_to_hex(rgb)`
+
+	- `hex_to_rgb(hex_)`
+
+```
+#app.py
+
+from color_notation import rgb_to_hex, hex_to_rgb
+
+print(rgb_to_hex((255,255,255)))
+print(hex_to_rgb("#FFFFFF"))
+```
+
+```
+>> C:\current\working\directory λ python app.py
+>> #FFFFFF
+>> 255,255,255
+>> C:\current\working\directory λ
+```
+
+---
+
 ### Decorators:
 (coming soon)
 
