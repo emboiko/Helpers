@@ -52,8 +52,62 @@ This repo serves as a collection of various functions, classes, & code snippets 
 (coming soon)
 ### Decorators:
 (coming soon)
+
+---
+
 ### File_Utils:
-(coming soon)
+
+- get_disks.py
+
+`get_disks()`
+
+```
+#app.py
+
+from get_disks import get_disks
+
+print(get_disks())
+```
+
+```
+>> C:\current\working\directory λ python app.py
+>> ['A:/', 'B:/', 'C:/', 'D:/']
+>> C:\current\working\directory λ
+```
+
+---
+
+- name_dupe.py
+
+`name_dupe(path)`
+
+We want to rename a file / directory until it doesn't exist anymore to avoid silently overwriting something. Returns original path if it doesn't already exist.
+
+```
+#app.py
+
+from name_dupe import name_dupe
+
+paths = [
+	r"C:\path\to\existing_file.txt",
+    r"C:\path\to\non_existing_file.txt",
+    r"C:\path\to\existing_directory",
+    r"C:\path\to\non_existing_directory",
+]
+
+for path in paths:
+	print(name_dupe(path))
+
+```
+
+```
+>> C:\current\working\directory λ python app.py
+>> C:\path\to\existing_file (1).txt
+>> C:\path\to\non_existing_file.txt
+>> C:\path\to\existing_directory (1)
+>> C:\path\to\non_existing_directory
+>> C:\current\working\directory λ
+```
 
 ---
 
