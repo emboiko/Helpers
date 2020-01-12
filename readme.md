@@ -1,9 +1,5 @@
 # Various Helpers (Python3) (WIP)
 
-<p align=center>
-<img src="https://i.imgur.com/Ccg6d53.jpg?1">
-</p>
-
 This repo serves as a collection of various functions, classes, & code snippets as they begin to make multiple appearances in multiple projects. Pre-existing repositories for decorators & context managers now live here. This is also a place for smaller modules, bits, & bytes that don't necessarily warrant an entire repo of their own. 
 
 ## Contents:
