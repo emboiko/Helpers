@@ -39,6 +39,34 @@ class Socket_Singleton():
             self._thread.start()
 
 
+    def __str__(self):
+        return "Socket Singleton"\
+        f" @ {self.address} on port {self.port}"
+
+
+    def __repr__(self):
+        return "Socket Singleton"\
+        f" @ {self.address} on port {self.port}\n"\
+        f"@ {hex(id(self))} "\
+        f"w/ {len(self._observers.keys())} registered observer(s)"
+
+
+    def __enter__(self):
+        """
+        Get more control with a context manager => Equally clean
+        interface without calls to close()
+        """
+
+        return self
+
+
+    def __exit__(self, ex_type, ex_value, ex_traceback):
+        """Cleanup self._thread & allow any exceptions to bubble up"""
+
+        self.close()
+        return False
+
+
     def _create_server(self):
         """
             If the socket bound successfully, a threaded server will
@@ -82,7 +110,7 @@ class Socket_Singleton():
         """Call all observers"""
 
         [
-            observer(self, *args[0], **args[1])
+            observer(self.arguments, *args[0], **args[1])
             for observer, args 
             in self._observers.items()
         ]
