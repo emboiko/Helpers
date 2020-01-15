@@ -30,9 +30,7 @@ class Socket_Singleton():
         except:
             if self.client:
                 self._create_client()
-                raise SystemExit
-            else:
-                raise SystemExit
+            raise SystemExit
         else:
             self._running = True
             self._thread = Thread(target=self._create_server, daemon=True)

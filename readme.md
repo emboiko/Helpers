@@ -176,12 +176,12 @@ This can be accessed directly, but it's probably more convenient to use the `tra
 
 from socket_singleton import Socket_Singleton
 
-def callback(app, *args, **kwargs):
-    print(app.arguments)
+def callback(arguments, *args, **kwargs):
+    print(arguments)
 
 def main():
     app = Socket_Singleton()
-    app.trace(callback)
+    app.trace(callback, *args, **kwargs)
     input() #Blocking call to simulate your_business_logic() 
 
 if __name__ == "__main__":
@@ -217,6 +217,7 @@ from socket_singleton import Socket_Singleton
 def main():
     app = Socket_Singleton()
     app.close()
+    print("Running!")
     input()
 
 if __name__ == "__main__":
@@ -233,6 +234,23 @@ And in a new shell:
 >> C:\current\working\directory λ python app.py
 >> Running!
 >> 
+```
+
+---
+
+Context manager protocol is implemented as well:
+
+```
+with Socket_Singleton():
+    input() #Blocking call to simulate your_business_logic()
+```
+
+`Socket_Singleton.__enter__()` returns self so we can can have access to the object if needed:
+
+```
+with Socket_Singleton() as ss:
+    ss.trace(callback)
+    input() #Blocking call to simulate your_business_logic()
 ```
 
 ---
