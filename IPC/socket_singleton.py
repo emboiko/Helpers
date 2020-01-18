@@ -45,7 +45,6 @@ class Socket_Singleton:
         self._client = client
         self._strict = strict
         self._observers = dict()
-        self._script_name = basename([argv][0][0])
 
         self._sock = socket()
         try:
@@ -59,9 +58,9 @@ class Socket_Singleton:
                 raise SystemExit
             else:
                 raise MultipleSingletonsError(
-                    "\n"
-                    f"{self._script_name} is already bound & listening "\
-                    f"@ {self.address} on port {self.port}. Multiple "
+                    "\n"\
+                    "Application is already bound & listening "\
+                    f"@ {self.address} on port {self.port}. Multiple "\
                     "instances are disallowed in the current context."
                 ) from None
         else:
