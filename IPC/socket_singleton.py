@@ -1,6 +1,7 @@
 from sys import argv
 from socket import socket
 from threading import Thread
+from os.path import basename
 
 
 class Socket_Singleton:
@@ -44,6 +45,7 @@ class Socket_Singleton:
         self._client = client
         self._strict = strict
         self._observers = dict()
+        self._script_name = basename([argv][0][0])
 
         self._sock = socket()
         try:
@@ -56,7 +58,12 @@ class Socket_Singleton:
             if self._strict:
                 raise SystemExit
             else:
-                raise MultipleSingletonsError from None
+                raise MultipleSingletonsError(
+                    "\n"
+                    f"{self._script_name} is already bound & listening "\
+                    f"@ {self.address} on port {self.port}. Multiple "
+                    "instances are disallowed in the current context."
+                ) from None
         else:
             self._running = True
             self._thread = Thread(target=self._create_server, daemon=True)
