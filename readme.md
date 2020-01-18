@@ -141,7 +141,7 @@ for path in paths:
 ### IPC:
 - socket_singleton.py
 
-`Socket_Singleton(address="127.0.0.1", port=1337, client=True)`
+`Socket_Singleton(address="127.0.0.1", port=1337, client=True, strict=True)`
 
 Say we have an application, app.py, that we want to restrict to a single instance.
 ```
@@ -251,6 +251,25 @@ with Socket_Singleton():
 with Socket_Singleton() as ss:
     ss.trace(callback)
     input() #Blocking call to simulate your_business_logic()
+```
+
+---
+
+If we specify the kwarg `strict=False`, we can raise and capture a custom exception, `MultipleSingletonsError`, rather than entirely destroying the process which fails to become the singleton.
+
+```
+from socket_singleton import Socket_Singleton, MultipleSingletonsError
+
+try:
+    Socket_Singleton(strict=False)
+    input("We are the Socket Singleton.")
+except MultipleSingletonsError:
+    input("We are not the Socket Singleton.")
+else:
+    #Do your very_exclusive_thing() here. 
+finally:
+    print("Done.")
+
 ```
 
 ---
