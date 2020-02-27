@@ -6,6 +6,7 @@ def get_disks():
     """
         Returns a list of all mounted disks (for Windows platforms)
 
+        >> ["A:", "B:", "C:"]
     """
 
     if system() != "Windows":
@@ -18,4 +19,4 @@ def get_disks():
 
     disks=findall("[A-Z]:", str(logicaldisks.stdout))
     
-    return [disk + "/" for disk in disks]
+    return [disk for disk in disks]
