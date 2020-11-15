@@ -38,14 +38,11 @@ This repo serves as a collection of various functions, classes, & code snippets 
 	- name_dupe.py
 		- `name_dupe()`: Return a filename appended w/ an index to avoid overwrite => file.txt => file(2).txt
 - #### Tk_Tools:
-	- get_offset.py
-		- `get_offset()`: Returns an appropriate offset for a given tkinter toplevel, such that it always shows center screen on the primary display, given its existing dimensions.
+	- offsets.py
+		- `get_offsets()`: Returns an appropriate offset for a given tkinter toplevel, such that it always shows center screen on the primary display, given its existing dimensions.
+		- `set_offsets()`: Set geometry offsets on a given Tk window
 
 ## Usage:
-### Context_Managers:
-(coming soon)
-
----
 
 ### Conversions:
 
@@ -70,11 +67,6 @@ print(hex_to_rgb("#FFFFFF"))
 >> 255,255,255
 >> C:\current\working\directory λ
 ```
-
----
-
-### Decorators:
-(coming soon)
 
 ---
 

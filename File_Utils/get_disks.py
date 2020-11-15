@@ -17,6 +17,4 @@ def get_disks():
         capture_output=True
     )
 
-    disks=findall("[A-Z]:", str(logicaldisks.stdout))
-    
-    return [disk for disk in disks]
+    return [disk for disk in findall("[A-Z]:", str(logicaldisks.stdout))]
